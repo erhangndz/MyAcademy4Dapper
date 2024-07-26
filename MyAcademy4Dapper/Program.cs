@@ -1,9 +1,13 @@
 using MyAcademy4Dapper.Context;
+using MyAcademy4Dapper.Services.CategoryServices;
+using MyAcademy4Dapper.Services.ProductServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<DapperContext>();
+builder.Services.AddScoped<ICategoryService,CategoryService>();
+builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
